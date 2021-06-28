@@ -17,30 +17,20 @@
         </div>
         <div class="mb-3">
           <label for="starRating" class="form-label">Star Rating</label>
-          <select formControlName="starRating" class="form-select" aria-describedby="starRatingHelp">
-            <option value="" selected>Choose a rating...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-          </select>
-          <div class="invalid-feedback">here</div>
+          <app-star-rating formControlName="starRating" id="starRating" aria-describedby="starRatingHelp"></app-star-rating>
           <div id="starRatingHelp" class="form-text">Choose a rating from 1-5</div>
-          <ng-container *ngIf="starRatingCtrl.invalid && (starRatingCtrl.dirty || starRatingCtrl.touched)">
-            <div *ngIf="starRatingCtrl.errors?.required" class="alert alert-danger mt-3" role="alert">Star Rating is required.</div>
-          </ng-container>
         </div>
         <div class="mb-3">
-          <input class="btn btn-primary" [disabled]="form.invalid" type="submit" value="Save Review">
+          <input class="btn btn-primary me-3" [disabled]="form.invalid" type="submit" value="Save Review">
+          <button type="button" class="btn btn-outline-primary" (click)="onReset()">Reset</button>
         </div>
       </form>
     </div>
     <div class="col">
-      <p>Raw Form Data</p>
-      <pre>{{ form.value | json }}</pre>
+      <code>
+      <p>Form Data</p>
+      <pre>{{ form.value | json }}</pre></code>
     </div>
   </div>
-
 
 </div>

@@ -1,0 +1,5 @@
+<div class="star-rating">
+  <div class="star-rating__item" *ngFor="let r of ratings(5); let i = index" (click)="onChangeRating(i + 1)">
+    <i class="bi" [ngClass]="[ rating > i ? 'bi-star-fill' : 'bi-star' ]"></i>
+  </div>
+</div>

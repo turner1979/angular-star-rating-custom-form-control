@@ -28,8 +28,10 @@ export class AppComponent {
         Validators.minLength(2),
         Validators.maxLength(32)
       ]],
-      starRating: ['', [
+      starRating: [0, [
         Validators.required,
+        Validators.min(1),
+        Validators.max(5)
       ]]
     })
   }
@@ -37,6 +39,13 @@ export class AppComponent {
   addFormControlRefs(): void {
     this.reviewTitleCtrl = this.form.controls['reviewTitle'] as FormControl;
     this.starRatingCtrl = this.form.controls['starRating'] as FormControl;
+  }
+
+  onReset() {
+    this.form.reset({
+      reviewTitle: '',
+      starRating: 0
+    });
   }
 
 }

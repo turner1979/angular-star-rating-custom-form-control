@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,
