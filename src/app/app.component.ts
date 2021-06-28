@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'star-rating-custom-form-control';
+
+  form = new FormGroup({
+    reviewTitle: new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(32)
+    ]),
+    starRating: new FormControl('', [
+      Validators.required
+    ]),
+  });
+
 }
