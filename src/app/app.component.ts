@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +7,36 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  form: FormGroup;
+  reviewTitleCtrl: FormControl;
+  starRatingCtrl: FormControl;
 
-  form = new FormGroup({
-    reviewTitle: new FormControl('', [
-      Validators.required,
-      Validators.minLength(2),
-      Validators.maxLength(32)
-    ]),
-    starRating: new FormControl('', [
-      Validators.required
-    ]),
-  });
+  constructor(private fb: FormBuilder) {
+
+  }
+
+  ngOnInit(): void {
+    this.buildForm();
+    this.addFormControlRefs();
+
+  }
+
+  buildForm(): void {
+    this.form = this.fb.group({
+      reviewTitle: ['', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(32)
+      ]],
+      starRating: ['', [
+        Validators.required,
+      ]]
+    })
+  }
+
+  addFormControlRefs(): void {
+    this.reviewTitleCtrl = this.form.controls['reviewTitle'] as FormControl;
+    this.starRatingCtrl = this.form.controls['starRating'] as FormControl;
+  }
 
 }
