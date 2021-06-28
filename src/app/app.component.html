@@ -1,35 +1,40 @@
 <div class="container">
 
-  <h3>Star Rating Form Control</h3>
+  <div class="card mt-3">
+    <div class="card-body">
+      <h3 class="card-title">Star Rating Customer Form Control</h3>
 
-  <div class="row align-items-start">
-    <div class="col">
-      <form [formGroup]="form" novalidate>
-        <div class="mb-3">
-          <label for="reviewTitle" class="form-label">Review Title</label>
-          <input formControlName="reviewTitle" type="text" class="form-control" id="reviewTitle" aria-describedby="reviewTitleHelp">
-          <div id="reviewTitleHelp" class="form-text">Write a short title describing your review.</div>
-          <ng-container *ngIf="reviewTitleCtrl.invalid && (reviewTitleCtrl.dirty || reviewTitleCtrl.touched)">
-            <div *ngIf="reviewTitleCtrl.errors?.required" class="alert alert-danger mt-3" role="alert">Review title is required.</div>
-            <div *ngIf="reviewTitleCtrl.errors?.minlength" class="alert alert-danger mt-3" role="alert">Review title must be at least 2 chars.</div>
-            <div *ngIf="reviewTitleCtrl.errors?.maxlength" class="alert alert-danger mt-3" role="alert">Review title must be at 32 chars or less.</div>
-          </ng-container>
+      <div class="row align-items-start">
+        <div class="col">
+          <form [formGroup]="form" novalidate>
+            <div class="mb-3">
+              <label for="reviewTitle" class="form-label">Review Title</label>
+              <input formControlName="reviewTitle" type="text" class="form-control" id="reviewTitle" aria-describedby="reviewTitleHelp">
+              <div id="reviewTitleHelp" class="form-text">Write a short title describing your review.</div>
+              <ng-container *ngIf="reviewTitleCtrl.invalid && (reviewTitleCtrl.dirty || reviewTitleCtrl.touched)">
+                <div *ngIf="reviewTitleCtrl.errors?.required" class="alert alert-danger mt-3" role="alert">Review title is required.</div>
+                <div *ngIf="reviewTitleCtrl.errors?.minlength" class="alert alert-danger mt-3" role="alert">Review title must be at least 2 chars.</div>
+                <div *ngIf="reviewTitleCtrl.errors?.maxlength" class="alert alert-danger mt-3" role="alert">Review title must be at 32 chars or less.</div>
+              </ng-container>
+            </div>
+            <div class="mb-3">
+              <label for="starRating" class="form-label">Star Rating</label>
+              <app-star-rating formControlName="starRating" id="starRating" aria-describedby="starRatingHelp"></app-star-rating>
+              <div id="starRatingHelp" class="form-text">Choose a rating from 1-5</div>
+            </div>
+            <div class="mb-3">
+              <input class="btn btn-primary me-3" [disabled]="form.invalid" type="submit" value="Save Review">
+              <button type="button" class="btn btn-outline-primary" (click)="onReset()">Reset</button>
+            </div>
+          </form>
         </div>
-        <div class="mb-3">
-          <label for="starRating" class="form-label">Star Rating</label>
-          <app-star-rating formControlName="starRating" id="starRating" aria-describedby="starRatingHelp"></app-star-rating>
-          <div id="starRatingHelp" class="form-text">Choose a rating from 1-5</div>
+        <div class="col">
+          <code>
+          <p>Form Data</p>
+          <pre>{{ form.value | json }}</pre></code>
         </div>
-        <div class="mb-3">
-          <input class="btn btn-primary me-3" [disabled]="form.invalid" type="submit" value="Save Review">
-          <button type="button" class="btn btn-outline-primary" (click)="onReset()">Reset</button>
-        </div>
-      </form>
-    </div>
-    <div class="col">
-      <code>
-      <p>Form Data</p>
-      <pre>{{ form.value | json }}</pre></code>
+      </div>
+
     </div>
   </div>
 
