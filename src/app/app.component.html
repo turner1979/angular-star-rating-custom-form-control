@@ -11,8 +11,8 @@
           <div id="reviewTitleHelp" class="form-text">Write a short title describing your review.</div>
           <ng-container *ngIf="reviewTitleCtrl.invalid && (reviewTitleCtrl.dirty || reviewTitleCtrl.touched)">
             <div *ngIf="reviewTitleCtrl.errors?.required" class="alert alert-danger mt-3" role="alert">Review title is required.</div>
-            <div *ngIf="reviewTitleCtrl.errors?.minlength" class="alert alert-danger" role="alert">Review title must be at least 2 chars.</div>
-            <div *ngIf="reviewTitleCtrl.errors?.maxlength" class="alert alert-danger" role="alert">Review title must be at 32 chars or less.</div>
+            <div *ngIf="reviewTitleCtrl.errors?.minlength" class="alert alert-danger mt-3" role="alert">Review title must be at least 2 chars.</div>
+            <div *ngIf="reviewTitleCtrl.errors?.maxlength" class="alert alert-danger mt-3" role="alert">Review title must be at 32 chars or less.</div>
           </ng-container>
         </div>
         <div class="mb-3">
