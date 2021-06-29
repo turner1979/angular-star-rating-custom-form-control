@@ -23,6 +23,12 @@
               <div id="starRatingHelp" class="form-text">Choose a rating from 1-5</div>
             </div>
             <div class="mb-3">
+              <div class="form-check">
+                <input formControlName="disableStarRating" class="form-check-input" type="checkbox" id="disableStarRatingCheck">
+                <label class="form-check-label" for="disableStarRatingCheck">Disable Star Rating</label>
+              </div>
+            </div>
+            <div class="mb-3">
               <input class="btn btn-primary me-3" [disabled]="form.invalid" type="submit" value="Save Review">
               <button type="button" class="btn btn-outline-primary" (click)="onReset()">Reset</button>
             </div>

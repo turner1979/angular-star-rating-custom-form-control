@@ -8,3 +8,8 @@
   cursor: pointer;
   color: #ffd208;
 }
+
+.star-rating--disabled .star-rating__item {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
