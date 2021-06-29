@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -14,6 +14,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
   ]
 })
 export class StarRatingComponent implements ControlValueAccessor {
+  @Input() maxRatings = 5;
   rating = 0;
 
   onChange = (rating) => {};
